@@ -12,7 +12,7 @@ def sleep(arg):
             def wrapper(*args, **kw):
                 result = func(*args, **kw)
                 time.sleep(arg)
-                #print 'sleep ' + str(arg)
+                #print 'sleep {arg}'.format(arg = arg)
                 return result
             return wrapper
         return decorator
@@ -20,7 +20,7 @@ def sleep(arg):
         def wrapper(*args, **kw):
             result = arg(*args, **kw)
             time.sleep(1)
-            #print 'sleep 1'
+            print 'sleep 1'
             return result
         return wrapper
 
@@ -36,9 +36,14 @@ def bar():
 @sleep(0.5)
 def com():
     print 'com'
+    
+def org():
+    print 'org'
  
-com()
-foo()
-bar()
+#com()
+#foo()
+#bar()
 
+org = sleep(org)
+org()
 
